@@ -1,1 +1,286 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="Video Summarization, Video Captioning, Cross-modality">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VideoXum: Cross-modal Visual and Textural Summarization of Videos</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VideoXum: Cross-modal Visual and Textural Summarization of Videos</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Jingyang Lin<sup>1*</sup>,</span>
+            <span class="author-block">Hang Hua<sup>1*</sup>,</span>
+            <span class="author-block">Ming Chen<sup>2</sup>,</span>
+            <span class="author-block">Yikang Li<sup>2</sup>,</span>
+            <span class="author-block">Jenhao Hsiao<sup>2</sup>,</span>
+            <span class="author-block">Chiuman Ho<sup>2</sup>,</span>
+            <span class="author-block">Jiebo Luo<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Rochester,</span>
+            <span class="author-block"><sup>2</sup>OPPO US Research Center</span>
+          </div>
+
+          <div class="is-size-6">
+            <span><i><sup>*</sup> indicates equal contributions</i></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2303.12060"
+                   class="external-link button is-normal is-rounded is-danger is-light">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span style="font-weight: bolder;">Paper (arXiv)</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video summarization aims to distill the most important information from a source video to
+            produce either an abridged clip or a textual narrative. Traditionally, different methods
+            have been proposed depending on whether the output is a video or text, thus ignoring the
+            correlation between the two semantically related tasks of visual summarization and textual
+            summarization. We propose a new joint video and text summarization task. The goal is to
+            generate both a shortened video clip along with the corresponding textual summary from a
+            long video, collectively referred to as a cross-modal summary. The generated shortened
+            video clip and text narratives should be semantically well aligned. To this end, we first
+            build a large-scale human-annotated dataset — <span style="font-weight: bolder;">VideoXum</span>
+            (X refers to different modalities). The dataset is reannotated based on ActivityNet. After
+            we filter out the videos that do not meet the length requirements, 14,001 long videos remain
+            in our new dataset. Each video in our reannotated dataset has human-annotated video summaries
+            and the corresponding narrative summaries. We then design a novel end-to-end model — VTSUM-BILP
+            to address the challenges of our proposed task. Moreover, we propose a new metric called
+            VT-CLIPScore to help evaluate the semantic consistency of cross-modality summary. The proposed
+            model achieves promising performance on this new task and establishes a benchmark for future
+            research. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Dataset. -->
+    <div class="columns is-centered">
+      <div class="column is-six-sevenths">
+        <h2 class="title is-3">Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this study, we first propose <span style="font-weight: bolder;">VideoXum</span>, an enriched large-scale
+            dataset for cross-modal video summarization. The dataset is built on <a href="https://arxiv.org/abs/1705.00754">ActivityNet Captions</a>,
+            a large-scale public video captioning benchmark. We hire crowd workers to annotate ten shortened video summaries
+            for each long source video according to the corresponding captions. VideoXum contains 14K long videos with 140K
+            pairs of aligned video and text summaries.
+          </p>
+          <img src="./static/images/v2x-sum.png"
+               class="interpolation-image"
+               alt="Interpolate start reference image."/>
+          <p class="column has-text-centered">
+            Illustration of our V2X-SUM task. A long source video (<i>bottom</i>) can be summarized into a shortened videoand
+            a text narrative (<i>top</i>). The video and text summaries should be semantically aligned.</p>
+          <p>
+            Our goal is to extend the traditional single-modal video summarization task to a cross-modal video summarization
+            task, referred to as V2X-SUM to meet the demands of broader application scenarios (e.g., movie trailer generation and
+            narrative generation). According to the target modality of the generated summaries, we categorize our proposed V2X-SUM
+            task into three subtasks:
+          </p>
+          <ul>
+            <li>
+              <span style="font-weight: bolder;">Video-to-Video Summarization (V2V-SUM)</span>. This task requires models to identify the most
+              important segments from the source video and generate an abridged version of the source video.
+            </li>
+            <li>
+              <span style="font-weight: bolder;">Video-to-Text Summarization (V2T-SUM)</span>. In this task, models need to summarize the main
+              content of the source video and generate a short text description.
+            </li>
+            <li>
+              <span style="font-weight: bolder;">Video-to-Video&Text Summarization (V2VT-SUM)</span>. This task requires models to summarize
+              a short video and the corresponding narrative from a source video simultaneously. Moreover, the semantics of these two modalities of
+              summaries should be well aligned.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dataset. -->
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Methodology. -->
+    <div class="columns is-centered">
+      <div class="column is-six-sevenths">
+        <h2 class="title is-3">Methodology</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose VTSUM-BLIP, a novel end-to-end cross-modal video summarization model.
+            To leverage the strong capability of vision understanding and language modeling of pretrained language models,
+            we employ <a href="https://arxiv.org/abs/2201.12086">BLIP</a> as our backbone. Then, we design an efficient hierarchical
+            video encoding strategy with a frozen encoder and a temporal modeling module to encode long videos. Furthermore,
+            we design different task-specific decoders for video and text summarization. The modularized design enables us to
+            perform more complex downstream tasks without changing the structure of the pretrained model.
+          </p>
+        </div>
+        <div class="column has-text-centered">
+          <img src="./static/images/framework.png"
+               class="interpolation-image"
+               alt="Interpolate start reference image."/>
+          <p class="column has-text-centered">
+            An overview of our VTSUM-BLIP model (<i>left</i>). The model consists of a hierarchical video encoder (<i>middle</i>), video-sum decoder,
+            and text-sum decoder (<i>right</i>). For V2V-SUM, the video-sum decoder employs a temporal Transformer and local
+            self-attention module to aggregate local context. For V2T-SUM, the text-sum decoder is a pretrained BLIP text decoder.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Methodology. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Visulization. -->
+    <div class="columns is-centered">
+      <div class="column is-six-sevenths">
+        <h2 class="title is-3">Visulization</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate our model by jointly generating visual and textual summaries for a long video.
+            We refer to this task as cross-modal visual and textual summarization of videos (i.e., V2VT-SUM).
+            We evaluate our model on VideoXum dataset.
+            We show examples qualitative results from the variations of our proposed model (VTSUM-BILP) in
+            the following figure. 
+          </p>
+        </div>
+        <div class="column has-text-centered">
+          <img src="./static/images/visualize.png"
+               class="interpolation-image"
+               alt="Interpolate start reference image."/>
+          <p class="column has-text-centered">
+            Example results of the generated video and text summaries across different baseline models. Red (both line and box)
+            indicates the results of the ground truth. Green indicates the results of the VTSUM-BLIP (Base). Blue indicates the
+            results of VTSUM-BLIP (+TT+CA).
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Visulization. -->
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@article{lin2023videoxum,
+  author    = {Lin, Jingyang and Hua, Hang and Chen, Ming and Li, Yikang and Hsiao, Jenhao and Ho, Chiuman and Luo, Jiebo},
+  title     = {VideoXum: Cross-modal Visual and Textural Summarization of Videos},
+  journal   = {arXiv:2303.12060},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <!-- <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
