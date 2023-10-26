@@ -97,23 +97,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Video summarization aims to distill the most important information from a source video to
-            produce either an abridged clip or a textual narrative. Traditionally, different methods
-            have been proposed depending on whether the output is a video or text, thus ignoring the
-            correlation between the two semantically related tasks of visual summarization and textual
-            summarization. We propose a new joint video and text summarization task. The goal is to
-            generate both a shortened video clip along with the corresponding textual summary from a
-            long video, collectively referred to as a cross-modal summary. The generated shortened
-            video clip and text narratives should be semantically well aligned. To this end, we first
-            build a large-scale human-annotated dataset — <span style="font-weight: bolder;">VideoXum</span>
-            (X refers to different modalities). The dataset is reannotated based on ActivityNet. After
-            we filter out the videos that do not meet the length requirements, 14,001 long videos remain
-            in our new dataset. Each video in our reannotated dataset has human-annotated video summaries
-            and the corresponding narrative summaries. We then design a novel end-to-end model — VTSUM-BLIP
-            to address the challenges of our proposed task. Moreover, we propose a new metric called
-            VT-CLIPScore to help evaluate the semantic consistency of cross-modality summary. The proposed
-            model achieves promising performance on this new task and establishes a benchmark for future
-            research. 
+            Video summarization aims to distill the most important information from a source video into either an abridged video clip
+            or a textual narrative.
+            Existing methods often treat the generation of video and text summaries as independent tasks, thus neglecting the semantic
+            correlation between visual and textual summarization.
+            In other words, these methods only study a single modality as output without considering coherent video and text as outputs.
+            In this work, we first introduce a novel task: cross-modal video summarization. This task seeks to transfer a long video into
+            a condensed video clip and a semantically aligned textual summary, collectively referred to as a cross-modal summary. 
+            We then establish VideoXum (X refers to different modalities), a new large-scale human-annotated video benchmark for cross-modal
+            video summarization. VideoXum is reannotated based on ActivityNet Captions with diverse open-domain videos.
+            In the current version, VideoXum provides 14K long videos, with a total of 140K pairs of aligned video and text summaries.
+            Compared to existing datasets, VideoXum offers superior scalability while preserving a comparable level of annotation quality.
+            To validate the dataset's quality, we provide a comprehensive analysis of VideoXum, comparing it with existing datasets.
+            Further, we perform an extensive empirical evaluation of several state-of-the-art methods on this dataset. Our findings
+            highlight the impressive generalization capability of the vision-language encoder-decoder framework yields on VideoXum.
+            Particularly, we propose VTSUM-BLIP, an end-to-end framework, serving as a strong baseline for this novel benchmark.
+            Moreover, we adapt CLIPScore for VideoXum to measure the semantic consistency of cross-modal summaries effectively.
           </p>
         </div>
       </div>
